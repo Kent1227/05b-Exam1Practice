@@ -3,8 +3,8 @@ PRACTICE Exam 1, problem 1.
 
 Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher,
          Valerie Galluzzi, Mark Hays, Amanda Stouder, Aaron Wilkin,
-         their colleagues, and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues, and Kent Smith.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 ###############################################################################
 # Students:
@@ -28,6 +28,7 @@ Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher,
 
 import testing_helper
 import time
+import math
 
 
 def main():
@@ -148,6 +149,15 @@ def run_test_problem1a():
     #   print('Test 1 expected:', expected)
     #   print('       actual:  ', actual)
     # -------------------------------------------------------------------------
+    expected = 0.063
+    actual = problem1a(2, 3)
+    print('Test 1 expected:', expected)
+    print('       actual:  ', actual)
+
+    expected = 1.955
+    actual = problem1a(1, 3)
+    print('Test 1 expected:', expected)
+    print('       actual:  ', actual)
 
 
 def problem1a(m, n):
@@ -176,6 +186,10 @@ def problem1a(m, n):
     #    DIFFICULTY:      5
     #    TIME ESTIMATE:   10 minutes.
     # -------------------------------------------------------------------------
+    total = 0
+    for k in range(((n ** 2) - (m ** 2)) + 1):
+        total = total + math.sin(k + m ** 2)
+    return total
 
 
 def run_test_problem1b():
@@ -198,6 +212,26 @@ def run_test_problem1b():
     print('--------------------------------------------------')
     print('Testing the   problem1b   function:')
     print('--------------------------------------------------')
+
+    expected = 3
+    actual = problem1b(2, 3)
+    print('Test 1 expected:', expected)
+    print('       actual:  ', actual)
+
+    expected = 6
+    actual = problem1b(4, 5)
+    print('Test 1 expected:', expected)
+    print('       actual:  ', actual)
+
+    expected = 4
+    actual = problem1b(2, 5)
+    print('Test 1 expected:', expected)
+    print('       actual:  ', actual)
+
+    expected = 4
+    actual = problem1b(2, 4)
+    print('Test 1 expected:', expected)
+    print('       actual:  ', actual)
 
 
 def problem1b(m, f):
@@ -230,7 +264,11 @@ def problem1b(m, f):
     #    DIFFICULTY:      5
     #    TIME ESTIMATE:   10 to 15 minutes.
     # -------------------------------------------------------------------------
-
+    total = 0
+    for k in range((f * m) - m + 1):
+        if is_prime(k) == 1:
+            total = total + 1
+    return total
 
 def run_test_problem1c():
     """ Tests the   problem1c   function. """
