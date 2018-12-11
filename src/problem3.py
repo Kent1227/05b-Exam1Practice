@@ -38,7 +38,7 @@ def main():
 def run_test_problem3a():
     """ Tests the   problem3a   function. """
     # -------------------------------------------------------------------------
-    # TODO: 2. Implement this TEST function.
+    # DONE: 2. Implement this TEST function.
     #   It TESTS the  problem1a  function defined below.
     #   Include at least **   5   ** tests (we wrote four for you).
     # -------------------------------------------------------------------------
@@ -102,11 +102,13 @@ def run_test_problem3a():
 
     # Test 5 (window 4)
     point = rg.Point(30, 30)
-    expected = 23
+    expected = 25
     answer = problem3a(window4, point, 5)
     print()
     print('Test 5 expected:', expected)
     print('       actual:  ', answer)
+
+    window4.close_on_mouse_click()
 
     # -------------------------------------------------------------------------
     # TO DO: 2 (continued).
@@ -166,10 +168,13 @@ def problem3a(window, point, n):
         else:
             line.thickness = 13
         line.attach_to(window)
+        total = total + line.thickness
         start.x = start.x + 20
         start.y = start.y + 10
         end.x = end.x + 20
         end.y = end.y + 10
+    window.render()
+    return total
 
 
 def run_test_problem3b():
